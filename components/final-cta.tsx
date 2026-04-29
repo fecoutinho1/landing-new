@@ -67,7 +67,7 @@ export function FinalCTA() {
               style={{ transitionDelay: "300ms" }}
             >
               <Rocket weight="duotone" className="h-4 w-4 text-[var(--color-accent-orange-600)]" />
-              <span className="text-sm font-medium text-[var(--color-accent-orange-700)]">1,000 free compute hours</span>
+              <span className="text-sm font-medium text-[var(--color-accent-orange-700)]">Integração em menos de 30 minutos</span>
             </div>
 
             <h2
@@ -76,7 +76,7 @@ export function FinalCTA() {
               }`}
               style={{ transitionDelay: "400ms" }}
             >
-              Ready to deploy your first agent?
+              Pronto para proteger suas aplicações de IA?
             </h2>
 
             <p
@@ -85,7 +85,7 @@ export function FinalCTA() {
               }`}
               style={{ transitionDelay: "500ms" }}
             >
-              Join thousands of developers building the next generation of autonomous systems.
+              Junte-se a times que já usam o Clean Predict para garantir segurança e compliance em suas integrações com LLMs.
             </p>
 
             <div
@@ -94,26 +94,30 @@ export function FinalCTA() {
               }`}
               style={{ transitionDelay: "600ms" }}
             >
-              <Button
-                size="lg"
-                className={`bg-[var(--color-accent-orange-500)] text-white hover:bg-[var(--color-accent-orange-600)] rounded-full h-12 px-8 font-semibold transition-all duration-500 hover:shadow-[0_0_30px_-5px_var(--color-accent-orange-500)] ${
-                  isVisible ? "translate-x-0" : "-translate-x-8"
-                }`}
-                style={{ transitionDelay: "700ms" }}
-              >
-                Start building free
-                <ArrowRight weight="bold" className="ml-2 h-4 w-4" />
-              </Button>
-              <Button
-                size="lg"
-                variant="ghost"
-                className={`text-[var(--color-baltic-sea-600)] hover:text-[var(--color-baltic-sea-900)] hover:bg-[var(--color-baltic-sea-100)] rounded-full h-12 px-8 transition-all duration-500 ${
-                  isVisible ? "translate-x-0" : "translate-x-8"
-                }`}
-                style={{ transitionDelay: "700ms" }}
-              >
-                Schedule a demo
-              </Button>
+              <a href="/login">
+                <Button
+                  size="lg"
+                  className={`bg-[var(--color-accent-orange-500)] text-white hover:bg-[var(--color-accent-orange-600)] rounded-full h-12 px-8 font-semibold transition-all duration-500 hover:shadow-[0_0_30px_-5px_var(--color-accent-orange-500)] ${
+                    isVisible ? "translate-x-0" : "-translate-x-8"
+                  }`}
+                  style={{ transitionDelay: "700ms" }}
+                >
+                  Começar agora
+                  <ArrowRight weight="bold" className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
+              <a href="/docs">
+                <Button
+                  size="lg"
+                  variant="ghost"
+                  className={`text-[var(--color-baltic-sea-600)] hover:text-[var(--color-baltic-sea-900)] hover:bg-[var(--color-baltic-sea-100)] rounded-full h-12 px-8 transition-all duration-500 ${
+                    isVisible ? "translate-x-0" : "translate-x-8"
+                  }`}
+                  style={{ transitionDelay: "700ms" }}
+                >
+                  Ver documentação
+                </Button>
+              </a>
             </div>
 
             <p
@@ -122,7 +126,7 @@ export function FinalCTA() {
               }`}
               style={{ transitionDelay: "800ms" }}
             >
-              No credit card required · Deploy in under 60 seconds · Cancel anytime
+              Sem cartão de crédito · Integração em menos de 30 minutos · Cancele quando quiser
             </p>
           </div>
         </div>

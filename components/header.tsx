@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
 import { Cube, Lightning } from "@phosphor-icons/react/dist/ssr"
 
 export function Header() {
@@ -50,53 +49,48 @@ export function Header() {
             `}
           >
             <a
-              href="#product"
+              href="#funcionalidades"
               className="px-4 py-1.5 text-sm text-[var(--color-baltic-sea-900)] rounded-full bg-[var(--color-baltic-sea-100)]"
             >
-              Product
+              Funcionalidades
             </a>
             <a
-              href="#pricing"
+              href="#como-funciona"
               className="px-4 py-1.5 text-sm text-[var(--color-baltic-sea-500)] hover:text-[var(--color-baltic-sea-900)] transition-colors"
             >
-              Pricing
+              Como funciona
             </a>
             <a
-              href="#"
+              href="#precos"
               className="px-4 py-1.5 text-sm text-[var(--color-baltic-sea-500)] hover:text-[var(--color-baltic-sea-900)] transition-colors"
             >
-              Docs
-            </a>
-            <a
-              href="#"
-              className="px-4 py-1.5 text-sm text-[var(--color-baltic-sea-500)] hover:text-[var(--color-baltic-sea-900)] transition-colors"
-            >
-              Blog
+              Preços
             </a>
           </nav>
 
           {/* Actions - hide Deploy button when scrolled */}
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="/login"
               className={`
                 hidden text-sm text-[var(--color-baltic-sea-500)] hover:text-[var(--color-baltic-sea-900)] transition-all duration-500 md:block
                 ${scrolled ? "opacity-0 pointer-events-none" : "opacity-100"}
               `}
             >
-              Sign in
+              Log In
             </a>
-            <Button
+            <a
+              href="/docs"
               className={`
-                hidden md:flex bg-[var(--color-accent-orange-400)] text-[var(--color-accent-orange-950)] hover:bg-[var(--color-accent-orange-300)] 
-                rounded-full px-5 py-2.5 h-auto text-sm
+                hidden md:flex items-center bg-[var(--color-accent-orange-400)] text-[var(--color-accent-orange-950)] hover:bg-[var(--color-accent-orange-300)] 
+                rounded-full px-5 py-2.5 h-auto text-sm font-medium
                 transition-all duration-500
                 ${scrolled ? "opacity-0 pointer-events-none" : "opacity-100"}
               `}
             >
               <Lightning weight="fill" className="mr-1.5 h-4 w-4" />
-              Deploy
-            </Button>
+              Docs
+            </a>
           </div>
         </div>
       </header>
@@ -108,13 +102,14 @@ export function Header() {
           ${scrolled ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}
         `}
       >
-        <Button
-          className="bg-[var(--color-accent-orange-400)] text-[var(--color-accent-orange-950)] hover:bg-[var(--color-accent-orange-300)] 
-            rounded-full px-6 py-3 h-auto text-sm shadow-lg shadow-[var(--color-accent-orange-400)]/20"
+        <a
+          href="/docs"
+          className="flex items-center bg-[var(--color-accent-orange-400)] text-[var(--color-accent-orange-950)] hover:bg-[var(--color-accent-orange-300)] 
+            rounded-full px-6 py-3 h-auto text-sm font-medium shadow-lg shadow-[var(--color-accent-orange-400)]/20"
         >
           <Lightning weight="fill" className="mr-1.5 h-4 w-4" />
-          Deploy
-        </Button>
+          Docs
+        </a>
       </div>
     </>
   )

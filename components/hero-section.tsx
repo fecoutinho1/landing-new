@@ -158,32 +158,36 @@ export function HeroSection() {
           {/* Left column - text content */}
           <div className="lg:max-w-xl lg:min-h-screen flex flex-col justify-center pt-24 lg:pt-20">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-baltic-sea-900)] leading-[1.1]">
-              Containers para
+              Governança para IA.
               <br />
-              <span className="text-[var(--color-baltic-sea-900)]">agentes</span>
+              <span className="text-[var(--color-baltic-sea-900)]">Controle Total</span>
               <br />
-              autônomos
+              com Segurança.
             </h1>
 
             <p className="mt-6 text-lg text-[var(--color-baltic-sea-500)] max-w-md leading-relaxed">
-              Deploy de agentes IA em containers isolados e seguros com cold starts abaixo de 50ms. Escale de zero a milhares instantaneamente.
+              O Clean Predict fica entre o seu app e qualquer provedor de LLM. Detecta injeção de prompt, anonimiza dados pessoais, bloqueia vazamento de secrets e rastreia consumo de tokens em tempo real.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Button
-                size="lg"
-                className="bg-[var(--color-accent-orange-500)] hover:bg-[var(--color-accent-orange-600)] text-white font-semibold px-6"
-              >
-                Começar a usar
-                <ArrowRight className="ml-2 h-4 w-4" weight="bold" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="lg"
-                className="text-[var(--color-baltic-sea-600)] hover:text-[var(--color-baltic-sea-900)] hover:bg-[var(--color-baltic-sea-100)]"
-              >
-                Ver documentação
-              </Button>
+              <a href="/login">
+                <Button
+                  size="lg"
+                  className="bg-[var(--color-accent-orange-500)] hover:bg-[var(--color-accent-orange-600)] text-white font-semibold px-6"
+                >
+                  Começar agora
+                  <ArrowRight className="ml-2 h-4 w-4" weight="bold" />
+                </Button>
+              </a>
+              <a href="/docs">
+                <Button
+                  variant="ghost"
+                  size="lg"
+                  className="text-[var(--color-baltic-sea-600)] hover:text-[var(--color-baltic-sea-900)] hover:bg-[var(--color-baltic-sea-100)]"
+                >
+                  Ver documentação
+                </Button>
+              </a>
             </div>
           </div>
 

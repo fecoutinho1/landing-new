@@ -7,20 +7,20 @@ const STEPS = [
   {
     icon: Code,
     number: "01",
-    title: "Define your agent",
-    description: "Write your agent logic in Python or TypeScript. Use our SDK or bring your own framework.",
+    title: "Gere sua API Key",
+    description: "Crie sua conta e gere uma API Key no painel. Leva menos de 1 minuto para começar.",
   },
   {
     icon: GitBranch,
     number: "02",
-    title: "Push to Git",
-    description: "Connect your repository. Every push triggers an automatic build and deployment.",
+    title: "Configure o proxy",
+    description: "Substitua a URL base do seu provedor de LLM pelo endpoint do Clean Predict. Uma linha de código.",
   },
   {
     icon: Rocket,
     number: "03",
-    title: "Scale infinitely",
-    description: "Your agent goes live instantly. We handle scaling, monitoring, and global distribution.",
+    title: "Envie para o LLM",
+    description: "Suas requisições passam pelo Clean Predict primeiro, são protegidas e então enviadas ao modelo final.",
   },
 ]
 
@@ -52,16 +52,16 @@ export function HowItWorks() {
   }, [isVisible])
 
   return (
-    <section ref={ref} className="py-24 border-t border-[var(--color-baltic-sea-200)] overflow-hidden">
+    <section ref={ref} id="como-funciona" className="py-24 border-t border-[var(--color-baltic-sea-200)] overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-2.5 sm:px-6 lg:px-12">
         <div
           className={`text-center max-w-2xl mx-auto mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-12 blur-sm"}`}
         >
           <span className="text-sm font-medium text-[var(--color-accent-orange-400)] uppercase tracking-wider">
-            How it works
+            Como funciona
           </span>
           <h2 className="mt-3 text-3xl font-bold text-[var(--color-baltic-sea-900)] md:text-4xl text-balance">
-            From code to production in minutes
+            Da integração à produção em minutos
           </h2>
         </div>
 

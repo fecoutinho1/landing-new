@@ -63,19 +63,19 @@ function AnimatedCard({
 
 export function BentoGrid() {
   return (
-    <section id="product" className="py-24">
+    <section id="funcionalidades" className="py-24">
       {/* Section header */}
       <div className="mx-auto max-w-[1400px] px-2.5 sm:px-6 lg:px-12">
         <AnimatedCard delay={0} direction="up">
           <div className="mb-16 max-w-2xl">
             <span className="text-sm font-medium text-[var(--color-accent-orange-400)] uppercase tracking-wider">
-              Capabilities
+              Funcionalidades
             </span>
             <h2 className="mt-3 text-3xl font-bold text-[var(--color-baltic-sea-900)] md:text-4xl">
-              Infrastructure that understands agents
+              Proteção completa para suas aplicações de IA
             </h2>
             <p className="mt-4 text-lg text-[var(--color-baltic-sea-500)]">
-              Purpose-built primitives for deploying, scaling, and observing autonomous systems.
+              Um proxy transparente que adiciona segurança, compliance e controle de custos às suas integrações com LLMs.
             </p>
           </div>
         </AnimatedCard>
@@ -88,9 +88,9 @@ export function BentoGrid() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-accent-orange-100)]">
                 <Lightning weight="duotone" className="h-6 w-6 text-[var(--color-accent-orange-600)]" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-[var(--color-baltic-sea-900)]">47ms cold starts</h3>
+              <h3 className="mt-4 text-lg font-semibold text-[var(--color-baltic-sea-900)]">Detecção de Injeção de Prompt</h3>
               <p className="mt-2 text-sm text-[var(--color-baltic-sea-500)] flex-1">
-                Agents wake instantly. No warm pools needed. Your containers are ready before the request completes.
+                Detecta e bloqueia prompts maliciosos em tempo real: jailbreaks, sobrescrita de instruções, injeções indiretas via RAG e conteúdo externo.
               </p>
               <div className="mt-auto pt-6 flex items-end gap-1">
                 {[47, 52, 43, 48, 51, 45, 49, 44, 50, 46].map((val, i) => (
@@ -110,9 +110,9 @@ export function BentoGrid() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-baltic-sea-100)]">
                 <Globe weight="duotone" className="h-5 w-5 text-[var(--color-accent-orange-600)]" />
               </div>
-              <h3 className="mt-3 text-base font-semibold text-[var(--color-baltic-sea-900)]">Global edge network</h3>
+              <h3 className="mt-3 text-base font-semibold text-[var(--color-baltic-sea-900)]">Anonimização de PII</h3>
               <p className="mt-1 text-sm text-[var(--color-baltic-sea-500)]">
-                30+ regions. Automatic routing to the nearest point of presence.
+                Substitui automaticamente nomes, CPFs, emails e cartões de crédito por tokens reversíveis antes de enviar ao LLM.
               </p>
             </BentoCard>
           </AnimatedCard>
@@ -124,8 +124,8 @@ export function BentoGrid() {
             className="hidden md:block min-h-[160px] md:min-h-0 md:col-span-3"
           >
             <BentoCard className="flex flex-col items-center justify-center text-center h-full">
-              <div className="text-4xl font-bold text-[var(--color-accent-orange-600)]">99.99%</div>
-              <div className="mt-1 text-sm text-[var(--color-baltic-sea-500)]">Uptime SLA</div>
+              <div className="text-4xl font-bold text-[var(--color-accent-orange-600)]">{`<20ms`}</div>
+              <div className="mt-1 text-sm text-[var(--color-baltic-sea-500)]">de latência</div>
             </BentoCard>
           </AnimatedCard>
 
@@ -135,9 +135,9 @@ export function BentoGrid() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-baltic-sea-100)]">
                 <ShieldCheck weight="duotone" className="h-5 w-5 text-[var(--color-accent-orange-600)]" />
               </div>
-              <h3 className="mt-3 text-base font-semibold text-[var(--color-baltic-sea-900)]">Isolated sandboxes</h3>
+              <h3 className="mt-3 text-base font-semibold text-[var(--color-baltic-sea-900)]">Detecção de Secrets</h3>
               <p className="mt-1 text-sm text-[var(--color-baltic-sea-500)]">
-                gVisor-backed isolation for every agent.
+                Bloqueia vazamento de API keys, senhas e connection strings via análise de entropia.
               </p>
             </BentoCard>
           </AnimatedCard>
@@ -150,14 +150,14 @@ export function BentoGrid() {
                   <Cpu weight="duotone" className="h-5 w-5 text-[var(--color-accent-orange-600)]" />
                 </div>
                 <span className="text-xs font-medium text-[var(--color-accent-orange-700)] uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--color-accent-orange-100)] border border-[var(--color-accent-orange-300)]">
-                  GPU
+                  ROI
                 </span>
               </div>
               <h3 className="mt-3 text-base font-semibold text-[var(--color-baltic-sea-900)]">
-                On-demand GPU acceleration
+                Otimização de Custo
               </h3>
               <p className="mt-1 text-sm text-[var(--color-baltic-sea-500)]">
-                Access H100s and A100s when your agent needs compute. Scale back to zero when idle.
+                Acompanhe consumo de tokens e custo por modelo, workspace e requisição. Identifique prompts caros e padrões de uso.
               </p>
             </BentoCard>
           </AnimatedCard>
@@ -169,10 +169,10 @@ export function BentoGrid() {
                 <ChartLineUp weight="duotone" className="h-5 w-5 text-[var(--color-accent-orange-600)]" />
               </div>
               <h3 className="mt-3 text-base font-semibold text-[var(--color-baltic-sea-900)]">
-                Real-time observability
+                Auditoria de Compliance
               </h3>
               <p className="mt-1 text-sm text-[var(--color-baltic-sea-500)]">
-                Traces, logs, and metrics purpose-built for agent workflows.
+                Cada requisição é registrada com contexto completo para revisões de LGPD, GDPR, HIPAA e SOC 2.
               </p>
             </BentoCard>
           </AnimatedCard>
@@ -183,10 +183,10 @@ export function BentoGrid() {
                 <GitBranch weight="duotone" className="h-5 w-5 text-[var(--color-accent-orange-600)]" />
               </div>
               <h3 className="mt-3 text-base font-semibold text-[var(--color-baltic-sea-900)]">
-                Git-native deployments
+                Integração Sem Código
               </h3>
               <p className="mt-1 text-sm text-[var(--color-baltic-sea-500)]">
-                Push to deploy. Preview environments for every branch.
+                Mude uma URL. O Clean Predict funciona como proxy entre seu app e o LLM.
               </p>
             </BentoCard>
           </AnimatedCard>
@@ -196,9 +196,9 @@ export function BentoGrid() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--color-baltic-sea-100)]">
                 <ArrowsOutCardinal weight="duotone" className="h-5 w-5 text-[var(--color-accent-orange-600)]" />
               </div>
-              <h3 className="mt-3 text-base font-semibold text-[var(--color-baltic-sea-900)]">Auto-scaling swarms</h3>
+              <h3 className="mt-3 text-base font-semibold text-[var(--color-baltic-sea-900)]">Multi-provedor</h3>
               <p className="mt-1 text-sm text-[var(--color-baltic-sea-500)]">
-                Orchestrate thousands of agents with built-in coordination primitives.
+                Compatível com OpenAI, Anthropic, Azure, Cohere e qualquer provedor de LLM.
               </p>
             </BentoCard>
           </AnimatedCard>

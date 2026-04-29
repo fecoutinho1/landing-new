@@ -5,34 +5,34 @@ import { CaretDown } from "@phosphor-icons/react/dist/ssr"
 
 const FAQS = [
   {
-    question: "How does pricing work?",
+    question: "O que exatamente é o Clean Predict?",
     answer:
-      "You pay for compute hours used. The free tier includes 1,000 hours/month. Pro starts at $49/month with 10,000 hours included. Additional usage is billed at $0.005/hour. We only charge when your agents are actively running.",
+      "O Clean Predict é um proxy de segurança transparente que fica entre sua aplicação e qualquer provedor de LLM (OpenAI, Anthropic, Azure, Cohere, etc.). Cada requisição passa por ele em menos de 20ms: detectando injeção de prompt, anonimizando PII, bloqueando vazamento de secrets e registrando tudo para compliance.",
   },
   {
-    question: "What languages and frameworks are supported?",
+    question: "Como integro o Clean Predict?",
     answer:
-      "We support Python 3.9+ and Node.js 18+ natively. You can use any framework - LangChain, AutoGPT, CrewAI, or your own custom agents. Our SDK provides optional helpers but isn't required.",
+      "Mude uma linha: substitua a URL base do seu provedor de LLM pelo endpoint do Clean Predict. Só isso. O proxy é totalmente compatível com os SDKs da OpenAI, Anthropic e Azure. A maioria dos times está em produção em menos de 30 minutos.",
   },
   {
-    question: "How do you handle security and isolation?",
+    question: "Ele adiciona latência nas minhas chamadas ao LLM?",
     answer:
-      "Each agent runs in an isolated gVisor sandbox with its own network namespace. We never share compute resources between customers. Enterprise plans include dedicated infrastructure and SOC 2 compliance.",
+      "Nossa camada de inferência adiciona menos de 20ms no percentil 95. Para a maioria dos casos de uso com LLMs, onde a resposta do modelo leva centenas de milissegundos, esse overhead é imperceptível para os usuários finais.",
   },
   {
-    question: "Can I bring my own models?",
+    question: "Que tipos de ataques ele detecta?",
     answer:
-      "Yes. Connect any LLM provider - OpenAI, Anthropic, Cohere, or self-hosted models. We don't intercept or log your API calls. Your model keys stay encrypted and never leave your environment.",
+      "O Clean Predict detecta: injeção de prompt (direta e indireta), tentativas de jailbreak, consultas de exfiltração de dados e system prompt leakage. Também bloqueia secrets como API keys, senhas e connection strings usando análise de entropia e padrões regex.",
   },
   {
-    question: "What happens if my agent needs GPUs?",
+    question: "Meus dados são armazenados ou usados para treinamento?",
     answer:
-      "GPU-accelerated instances (H100, A100) are available on-demand. Your agent can request GPU resources programmatically when needed and automatically release them when done. You only pay for active GPU time.",
+      "Não. Os dados trafegados são criptografados e não é possível acessá-los. O PII é substituído por tokens reversíveis antes de sair do seu ambiente. Dados brutos nunca são armazenados em nossos servidores e não são usados para treinamento de modelos.",
   },
   {
-    question: "Do you offer SLAs?",
+    question: "Quais provedores de LLM são compatíveis?",
     answer:
-      "Pro plans include 99.9% uptime SLA. Enterprise plans include 99.99% SLA with guaranteed response times and a dedicated support channel. We publish real-time status at status.anchor.run.",
+      "O Clean Predict é compatível com qualquer provedor de LLM: OpenAI, Anthropic, Azure, Cohere, Google AI, modelos self-hosted e outros. Basta apontar para nosso endpoint e manter sua integração existente funcionando.",
   },
 ]
 
@@ -105,7 +105,7 @@ export function FAQ() {
         >
           <span className="text-sm font-medium text-[var(--color-accent-orange-400)] uppercase tracking-wider">FAQ</span>
           <h2 className="mt-3 text-3xl font-bold text-[var(--color-baltic-sea-900)] md:text-4xl">
-            Frequently asked questions
+            Perguntas frequentes
           </h2>
         </div>
 
