@@ -7,10 +7,15 @@ import { useEffect, useState, useRef } from "react"
 const CHATBOT_SEQUENCE = {
   userMessage: "Analise esse documento",
   steps: [
-    { text: "Lendo documento...", delay: 600 },
-    { text: "Processando conteúdo...", delay: 800 },
-    { text: "Gerando análise...", delay: 1000 },
+    { text: "Lendo documento...", delay: 500 },
+    { text: "Processando conteúdo...", delay: 600 },
+    { text: "Consultando api.cleanpredict.com/v1/", delay: 700 },
+    { text: "Camada de segurança...", delay: 500 },
+    { text: "Otimizando custo na inferência...", delay: 600 },
+    { text: "Construindo logs e camada de observabilidade...", delay: 700 },
+    { text: "Gerando análise...", delay: 800 },
   ],
+  statusPass: "Status: PASS",
   analysis: [
     { text: "Documento identificado: Contrato de Serviços", delay: 400 },
     { text: "Total de páginas: 12", delay: 300 },
@@ -22,9 +27,13 @@ const CHATBOT_SEQUENCE = {
 }
 
 const GRID_ACTIVATION_MAP: Record<number, number[]> = {
-  0: [5, 23, 47, 68, 92, 115, 138, 167, 189, 215],
-  1: [12, 31, 56, 78, 103, 127, 152, 178, 201, 223, 8, 45, 89, 134, 176],
-  2: [3, 19, 42, 65, 88, 112, 139, 163, 186, 209, 234, 17, 54, 97, 143, 188, 211, 237],
+  0: [5, 23, 47, 68, 92],
+  1: [12, 31, 56, 78, 103],
+  2: [115, 138, 167, 189, 215],
+  3: [8, 45, 89, 134, 176],
+  4: [3, 19, 42, 65, 88],
+  5: [112, 139, 163, 186, 209],
+  6: [17, 54, 97, 143, 188, 211, 237, 127, 152, 178, 201, 223, 234],
 }
 
 let animationStarted = false
@@ -37,6 +46,7 @@ export function HeroSection() {
   const [analysisOutputs, setAnalysisOutputs] = useState<string[]>([])
   const [isProcessing, setIsProcessing] = useState(false)
   const [activeCells, setActiveCells] = useState<Set<number>>(new Set())
+  const [showStatusPass, setShowStatusPass] = useState(false)
 
   const timeoutsRef = useRef<NodeJS.Timeout[]>([])
   const intervalsRef = useRef<NodeJS.Timeout[]>([])
@@ -82,9 +92,12 @@ export function HeroSection() {
         addTimeout(() => showSteps(stepIndex + 1), CHATBOT_SEQUENCE.steps[stepIndex].delay)
       } else {
         addTimeout(() => {
-          setShowAnalysis(true)
-          setIsProcessing(true)
-          runAnalysisOutputs()
+          setShowStatusPass(true)
+          addTimeout(() => {
+            setShowAnalysis(true)
+            setIsProcessing(true)
+            runAnalysisOutputs()
+          }, 600)
         }, 500)
       }
     }
@@ -223,16 +236,23 @@ export function HeroSection() {
                         {visibleSteps.map((stepIndex) => (
                           <div
                             key={stepIndex}
-                            className="flex items-center gap-2 text-[var(--color-baltic-sea-700)] animate-in fade-in slide-in-from-left-2 duration-300 text-sm"
+                            className="flex items-center gap-2 text-[var(--color-baltic-sea-700)] animate-in fade-in slide-in-from-left-2 duration-300 text-sm font-mono"
                           >
-                            {stepIndex < visibleSteps.length - 1 || showAnalysis ? (
+                            {stepIndex < visibleSteps.length - 1 || showStatusPass ? (
                               <CheckCircle weight="fill" className="h-4 w-4 text-[var(--color-accent-orange-500)]" />
                             ) : (
                               <span className="inline-block h-4 w-4 border-2 border-[var(--color-accent-orange-500)] border-t-transparent rounded-full animate-spin" />
                             )}
-                            <span>{CHATBOT_SEQUENCE.steps[stepIndex].text}</span>
+                            <span className="text-[var(--color-baltic-sea-500)]">{CHATBOT_SEQUENCE.steps[stepIndex].text}</span>
                           </div>
                         ))}
+                        {/* Status PASS */}
+                        {showStatusPass && (
+                          <div className="flex items-center gap-2 animate-in fade-in slide-in-from-left-2 duration-300 text-sm font-mono pt-1 border-t border-[var(--color-baltic-sea-100)] mt-2">
+                            <CheckCircle weight="fill" className="h-4 w-4 text-green-500" />
+                            <span className="text-green-600 font-semibold">{CHATBOT_SEQUENCE.statusPass}</span>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
