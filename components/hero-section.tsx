@@ -144,11 +144,6 @@ export function HeroSection() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12 lg:gap-20">
           {/* Left column - text content */}
           <div className="lg:max-w-xl lg:min-h-screen flex flex-col justify-center pt-24 lg:pt-20">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent-orange-300)] bg-[var(--color-accent-orange-50)] px-3 py-1 text-xs text-[var(--color-accent-orange-700)] mb-8 w-fit">
-              <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-accent-orange-500)]" />
-              v2.0 disponível agora
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--color-baltic-sea-900)] leading-[1.1]">
               Containers para
               <br />
@@ -182,7 +177,7 @@ export function HeroSection() {
           {/* Right column - chatbot demo */}
           <div className="lg:flex-1 lg:max-w-2xl lg:min-h-screen flex flex-col items-center justify-center lg:pt-20">
             {/* Chatbot Interface */}
-            <div className="w-full rounded-xl border border-[var(--color-baltic-sea-200)] bg-[var(--color-baltic-sea-100)] overflow-hidden shadow-2xl">
+            <div className="w-full rounded-xl border border-[var(--color-baltic-sea-200)] bg-white overflow-hidden shadow-2xl">
               <div className="flex items-center gap-2 px-4 py-3 border-b border-[var(--color-baltic-sea-200)] bg-white">
                 <div className="flex gap-1.5">
                   <div className="h-3 w-3 rounded-full bg-[var(--color-baltic-sea-300)]" />
@@ -198,11 +193,11 @@ export function HeroSection() {
                 {/* User message being typed */}
                 {!showUserMessage && typedMessage && (
                   <div className="flex justify-end">
-                    <div className="bg-[var(--color-accent-orange-500)] text-white px-4 py-2 rounded-2xl rounded-br-sm max-w-[80%]">
+                    <div className="bg-[var(--color-baltic-sea-100)] text-[var(--color-baltic-sea-700)] px-4 py-2 rounded-2xl rounded-br-sm max-w-[80%] border border-[var(--color-baltic-sea-200)]">
                       <div className="flex items-center gap-2">
-                        <FileText weight="bold" className="h-4 w-4" />
+                        <FileText weight="bold" className="h-4 w-4 text-[var(--color-baltic-sea-500)]" />
                         <span className="text-sm">{typedMessage}</span>
-                        <span className="inline-block w-0.5 h-4 bg-white/70 animate-pulse" />
+                        <span className="inline-block w-0.5 h-4 bg-[var(--color-baltic-sea-400)] animate-pulse" />
                       </div>
                     </div>
                   </div>
@@ -211,9 +206,9 @@ export function HeroSection() {
                 {/* User message sent */}
                 {showUserMessage && (
                   <div className="flex justify-end animate-in fade-in duration-300">
-                    <div className="bg-[var(--color-accent-orange-500)] text-white px-4 py-2 rounded-2xl rounded-br-sm max-w-[80%]">
+                    <div className="bg-[var(--color-baltic-sea-100)] text-[var(--color-baltic-sea-700)] px-4 py-2 rounded-2xl rounded-br-sm max-w-[80%] border border-[var(--color-baltic-sea-200)]">
                       <div className="flex items-center gap-2">
-                        <FileText weight="bold" className="h-4 w-4" />
+                        <FileText weight="bold" className="h-4 w-4 text-[var(--color-baltic-sea-500)]" />
                         <span className="text-sm">{CHATBOT_SEQUENCE.userMessage}</span>
                       </div>
                     </div>
