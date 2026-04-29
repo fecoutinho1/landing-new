@@ -7,52 +7,52 @@ import { Check, Lightning } from "@phosphor-icons/react/dist/ssr"
 const PLANS = [
   {
     name: "Starter",
-    price: "Free",
-    period: "forever",
-    description: "Perfect for side projects and experimentation",
+    price: "Grátis",
+    period: "para sempre",
+    description: "Perfeito para projetos pessoais e experimentação",
     features: [
-      "1,000 compute hours/month",
-      "3 concurrent agents",
-      "Community support",
-      "Basic observability",
-      "Shared infrastructure",
+      "10.000 requisições/mês",
+      "Detecção de injeção de prompt",
+      "Anonimização básica de PII",
+      "Suporte da comunidade",
+      "Logs básicos",
     ],
-    cta: "Start free",
+    cta: "Começar grátis",
     highlighted: false,
   },
   {
     name: "Pro",
-    price: "$49",
-    period: "/month",
-    description: "For teams shipping production agents",
+    price: "R$149",
+    period: "/mês",
+    description: "Para times em produção com múltiplos agentes",
     features: [
-      "10,000 compute hours/month",
-      "25 concurrent agents",
-      "Priority support",
-      "Advanced tracing & logs",
-      "Dedicated resources",
-      "Custom domains",
-      "Team collaboration",
+      "100.000 requisições/mês",
+      "Todas as proteções de segurança",
+      "Anonimização avançada de PII",
+      "Suporte prioritário",
+      "Logs e auditoria completos",
+      "Múltiplos workspaces",
+      "Alertas em tempo real",
     ],
-    cta: "Start trial",
+    cta: "Começar trial",
     highlighted: true,
   },
   {
     name: "Enterprise",
-    price: "Custom",
+    price: "Sob consulta",
     period: "",
-    description: "For organizations with advanced needs",
+    description: "Para organizações com necessidades avançadas",
     features: [
-      "Unlimited compute",
-      "Unlimited agents",
-      "24/7 dedicated support",
-      "SLA guarantee",
-      "Private infrastructure",
-      "SOC 2 compliance",
-      "Custom integrations",
-      "Dedicated account manager",
+      "Requisições ilimitadas",
+      "Infraestrutura dedicada",
+      "Suporte 24/7 dedicado",
+      "SLA garantido",
+      "Compliance SOC 2 / LGPD",
+      "Integrações customizadas",
+      "Gerente de conta dedicado",
+      "On-premise disponível",
     ],
-    cta: "Contact sales",
+    cta: "Falar com vendas",
     highlighted: false,
   },
 ]
@@ -78,17 +78,17 @@ export function Pricing() {
   }, [])
 
   return (
-    <section id="pricing" ref={ref} className="py-24 border-t border-[var(--color-baltic-sea-200)] overflow-hidden">
+    <section id="precos" ref={ref} className="py-24 border-t border-[var(--color-baltic-sea-200)] overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-2.5 sm:px-6 lg:px-12">
         <div
           className={`text-center max-w-2xl mx-auto mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-12 blur-sm"}`}
         >
-          <span className="text-sm font-medium text-[var(--color-accent-orange-400)] uppercase tracking-wider">Pricing</span>
+          <span className="text-sm font-medium text-[var(--color-accent-orange-400)] uppercase tracking-wider">Preços</span>
           <h2 className="mt-3 text-3xl font-bold text-[var(--color-baltic-sea-900)] md:text-4xl text-balance">
-            Simple, transparent pricing
+            Preços simples e transparentes
           </h2>
           <p className="mt-4 text-lg text-[var(--color-baltic-sea-500)]">
-            Start free, scale as you grow. No hidden fees, no surprises.
+            Comece grátis, escale conforme cresce. Sem taxas ocultas, sem surpresas.
           </p>
         </div>
 
@@ -116,7 +116,7 @@ export function Pricing() {
                   style={{ transitionDelay: "500ms" }}
                 >
                   <Lightning weight="fill" className="h-3 w-3" />
-                  Most popular
+                  Mais popular
                 </div>
               )}
 

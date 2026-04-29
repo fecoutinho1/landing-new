@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from "react"
 import { Check, X, Minus } from "@phosphor-icons/react/dist/ssr"
 
 const FEATURES = [
-  { name: "Sub-100ms cold starts", anchor: true, kubernetes: false, lambda: "partial" },
-  { name: "GPU acceleration", anchor: true, kubernetes: true, lambda: false },
-  { name: "Zero config deployment", anchor: true, kubernetes: false, lambda: "partial" },
-  { name: "Built-in observability", anchor: true, kubernetes: false, lambda: "partial" },
-  { name: "Auto-scaling to zero", anchor: true, kubernetes: "partial", lambda: true },
-  { name: "Agent-native primitives", anchor: true, kubernetes: false, lambda: false },
-  { name: "Multi-agent orchestration", anchor: true, kubernetes: false, lambda: false },
-  { name: "Global edge deployment", anchor: true, kubernetes: "partial", lambda: true },
+  { name: "Detecção de Injeção de Prompt", cleanpredict: true, manual: false, native: false },
+  { name: "Anonimização de PII", cleanpredict: true, manual: "partial", native: false },
+  { name: "Detecção de Secrets", cleanpredict: true, manual: "partial", native: false },
+  { name: "Redução de Custo", cleanpredict: true, manual: false, native: "partial" },
+  { name: "Segurança em Tempo Real", cleanpredict: true, manual: false, native: false },
+  { name: "Auditoria de Compliance", cleanpredict: true, manual: "partial", native: false },
+  { name: "Multi-provedor LLM", cleanpredict: true, manual: true, native: false },
+  { name: "Orquestração Multi-agent", cleanpredict: true, manual: "partial", native: false },
 ]
 
 function FeatureCell({ value, isVisible, delay }: { value: boolean | "partial"; isVisible: boolean; delay: number }) {
@@ -78,10 +78,10 @@ export function Comparison() {
           className={`text-center max-w-2xl mx-auto mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-12 blur-sm"}`}
         >
           <span className="text-sm font-medium text-[var(--color-accent-orange-400)] uppercase tracking-wider">
-            Comparison
+            Comparação
           </span>
           <h2 className="mt-3 text-3xl font-bold text-[var(--color-baltic-sea-900)] md:text-4xl text-balance">
-            Why teams choose Anchor
+            Por que times escolhem o Clean Predict
           </h2>
         </div>
 
@@ -96,11 +96,11 @@ export function Comparison() {
               <thead>
                 <tr className="border-b border-[var(--color-baltic-sea-200)]">
                   <th className="text-left p-4 lg:p-6 text-sm font-medium text-[var(--color-baltic-sea-500)]">
-                    Feature
+                    Funcionalidade
                   </th>
-                  <th className="p-4 lg:p-6 text-sm font-semibold text-[var(--color-accent-orange-600)]">Anchor</th>
-                  <th className="p-4 lg:p-6 text-sm font-medium text-[var(--color-baltic-sea-500)]">Kubernetes</th>
-                  <th className="p-4 lg:p-6 text-sm font-medium text-[var(--color-baltic-sea-500)]">Lambda</th>
+                  <th className="p-4 lg:p-6 text-sm font-semibold text-[var(--color-accent-orange-600)]">Clean Predict</th>
+                  <th className="p-4 lg:p-6 text-sm font-medium text-[var(--color-baltic-sea-500)]">Implementação Manual</th>
+                  <th className="p-4 lg:p-6 text-sm font-medium text-[var(--color-baltic-sea-500)]">LLM Nativo</th>
                 </tr>
               </thead>
               <tbody>
@@ -114,13 +114,13 @@ export function Comparison() {
                   >
                     <td className="p-4 lg:p-6 text-sm text-[var(--color-baltic-sea-700)]">{feature.name}</td>
                     <td className="p-4 lg:p-6">
-                      <FeatureCell value={feature.anchor} isVisible={isVisible} delay={400 + i * 60} />
+                      <FeatureCell value={feature.cleanpredict} isVisible={isVisible} delay={400 + i * 60} />
                     </td>
                     <td className="p-4 lg:p-6">
-                      <FeatureCell value={feature.kubernetes} isVisible={isVisible} delay={450 + i * 60} />
+                      <FeatureCell value={feature.manual} isVisible={isVisible} delay={450 + i * 60} />
                     </td>
                     <td className="p-4 lg:p-6">
-                      <FeatureCell value={feature.lambda} isVisible={isVisible} delay={500 + i * 60} />
+                      <FeatureCell value={feature.native} isVisible={isVisible} delay={500 + i * 60} />
                     </td>
                   </tr>
                 ))}

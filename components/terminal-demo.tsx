@@ -6,44 +6,39 @@ import { ArrowRight, Cube, CaretRight } from "@phosphor-icons/react/dist/ssr"
 
 const CONFIGS = [
   {
-    name: "research-assistant",
-    runtime: "python3.12",
-    memory: "2gb",
-    min: "0",
-    max: "100",
-    tools: '["web", "file", "code"]',
+    provider: "openai",
+    model: "gpt-4o",
+    detectPromptInjection: "true",
+    anonymizePII: "true",
+    blockSecrets: "true",
   },
   {
-    name: "code-reviewer",
-    runtime: "node20",
-    memory: "4gb",
-    min: "1",
-    max: "50",
-    tools: '["github", "code", "slack"]',
+    provider: "anthropic",
+    model: "claude-3-opus",
+    detectPromptInjection: "true",
+    anonymizePII: "true",
+    blockSecrets: "true",
   },
   {
-    name: "data-analyst",
-    runtime: "python3.12",
-    memory: "8gb",
-    min: "0",
-    max: "200",
-    tools: '["sql", "charts", "file"]',
+    provider: "azure",
+    model: "gpt-4-turbo",
+    detectPromptInjection: "true",
+    anonymizePII: "false",
+    blockSecrets: "true",
   },
   {
-    name: "customer-support",
-    runtime: "bun1.1",
-    memory: "1gb",
-    min: "5",
-    max: "500",
-    tools: '["email", "crm", "docs"]',
+    provider: "cohere",
+    model: "command-r-plus",
+    detectPromptInjection: "true",
+    anonymizePII: "true",
+    blockSecrets: "false",
   },
   {
-    name: "content-writer",
-    runtime: "deno2.0",
-    memory: "2gb",
-    min: "0",
-    max: "25",
-    tools: '["web", "image", "seo"]',
+    provider: "google",
+    model: "gemini-pro",
+    detectPromptInjection: "true",
+    anonymizePII: "true",
+    blockSecrets: "true",
   },
 ]
 
@@ -60,7 +55,7 @@ export function TerminalDemo() {
   const config = CONFIGS[configIndex]
 
   // Build the full string we're typing
-  const fullText = `${config.name}|${config.runtime}|${config.memory}|${config.min}|${config.max}|${config.tools}`
+  const fullText = `${config.provider}|${config.model}|${config.detectPromptInjection}|${config.anonymizePII}|${config.blockSecrets}`
   const totalChars = fullText.length
 
   // Get displayed value for each field based on typedChars
@@ -177,7 +172,7 @@ export function TerminalDemo() {
               <div className="flex items-center justify-between border-b border-[var(--color-baltic-sea-200)] px-4 py-3 bg-white">
                 <div className="flex items-center gap-3">
                   <Cube weight="fill" className="h-4 w-4 text-[var(--color-baltic-sea-500)]" />
-                  <span className="text-xs text-[var(--color-baltic-sea-600)] font-mono">agent.config.ts</span>
+                  <span className="text-xs text-[var(--color-baltic-sea-600)] font-mono">cleanpredict.config.ts</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   {CONFIGS.map((_, i) => (
@@ -202,29 +197,27 @@ export function TerminalDemo() {
               <div className="p-5 font-mono text-sm overflow-x-auto bg-white">
                 <pre className="text-[var(--color-baltic-sea-700)]">
                   <code>
-                    <span className="text-[var(--color-baltic-sea-400)]">{"// Defina seu agente"}</span>
+                    <span className="text-[var(--color-baltic-sea-400)]">{"// Configure o Clean Predict"}</span>
                     {"\n"}
                     <span className="text-[var(--color-accent-orange-600)]">export default</span>{" "}
-                    <span className="text-[var(--color-baltic-sea-900)]">defineAgent</span>
+                    <span className="text-[var(--color-baltic-sea-900)]">createProxy</span>
                     {"({"}
                     {"\n"}
                     {"  "}
-                    <span className="text-[var(--color-baltic-sea-700)]">name</span>: {renderValue(0)},{"\n"}
+                    <span className="text-[var(--color-baltic-sea-700)]">provider</span>: {renderValue(0)},{"\n"}
                     {"  "}
-                    <span className="text-[var(--color-baltic-sea-700)]">runtime</span>: {renderValue(1)},{"\n"}
+                    <span className="text-[var(--color-baltic-sea-700)]">model</span>: {renderValue(1)},{"\n"}
                     {"  "}
-                    <span className="text-[var(--color-baltic-sea-700)]">memory</span>: {renderValue(2)},{"\n"}
-                    {"  "}
-                    <span className="text-[var(--color-baltic-sea-700)]">scaling</span>: {"{"}
+                    <span className="text-[var(--color-baltic-sea-700)]">security</span>: {"{"}
                     {"\n"}
                     {"    "}
-                    <span className="text-[var(--color-baltic-sea-700)]">min</span>: {renderValue(3, false)},{"\n"}
+                    <span className="text-[var(--color-baltic-sea-700)]">detectPromptInjection</span>: {renderValue(2, false)},{"\n"}
                     {"    "}
-                    <span className="text-[var(--color-baltic-sea-700)]">max</span>: {renderValue(4, false)},{"\n"}
+                    <span className="text-[var(--color-baltic-sea-700)]">anonymizePII</span>: {renderValue(3, false)},{"\n"}
+                    {"    "}
+                    <span className="text-[var(--color-baltic-sea-700)]">blockSecrets</span>: {renderValue(4, false)},{"\n"}
                     {"  "}
                     {"}"},{"\n"}
-                    {"  "}
-                    <span className="text-[var(--color-baltic-sea-700)]">tools</span>: {renderValue(5, false)},{"\n"}
                     {"})"}
                   </code>
                 </pre>
@@ -235,17 +228,17 @@ export function TerminalDemo() {
           {/* CTA content - right */}
           <div className="lg:max-w-md">
             <span className="text-sm font-medium text-[var(--color-accent-orange-600)] uppercase tracking-wider">
-              Comece agora
+              Integração simples
             </span>
             <h2 className="mt-3 text-3xl font-bold text-[var(--color-baltic-sea-900)] md:text-4xl">
-              Deploy em menos de 60 segundos
+              Proteja suas chamadas em minutos
             </h2>
             <p className="mt-4 text-lg text-[var(--color-baltic-sea-500)]">
-              Defina seu agente, envie para o git e veja ele ao vivo. Sem YAML, sem Kubernetes, sem complexidade.
+              Configure o proxy, escolha suas proteções e comece a usar. Uma linha de código é tudo que você precisa.
             </p>
 
             <div ref={bulletsSectionRef} className="mt-8 space-y-4">
-              {["1.000 horas de computação grátis", "Sem cartão de crédito", "Deploy do GitHub em um clique"].map(
+              {["10.000 requisições grátis/mês", "Sem cartão de crédito", "Compatível com qualquer LLM"].map(
                 (text, index) => (
                   <div
                     key={index}
@@ -265,13 +258,15 @@ export function TerminalDemo() {
             </div>
 
             <div className="mt-10">
-              <Button
-                size="lg"
-                className="bg-[var(--color-accent-orange-500)] text-white hover:bg-[var(--color-accent-orange-600)] rounded-full h-12 px-6"
-              >
-                Começar a construir
-                <ArrowRight weight="bold" className="ml-2 h-4 w-4" />
-              </Button>
+              <a href="/login">
+                <Button
+                  size="lg"
+                  className="bg-[var(--color-accent-orange-500)] text-white hover:bg-[var(--color-accent-orange-600)] rounded-full h-12 px-6"
+                >
+                  Começar agora
+                  <ArrowRight weight="bold" className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
             </div>
           </div>
         </div>
