@@ -1,0 +1,200 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Base palette - baltic-sea */
+  --color-baltic-sea-50: oklch(97.48% 0.0 301.43);
+  --color-baltic-sea-100: oklch(94.80% 0.01 297.72);
+  --color-baltic-sea-200: oklch(88.34% 0.01 296.33);
+  --color-baltic-sea-300: oklch(47.69% 0.02 291.24);
+  --color-baltic-sea-400: oklch(44.91% 0.04 292.35);
+  --color-baltic-sea-500: oklch(40.99% 0.04 292.76);
+  --color-baltic-sea-600: oklch(34.20% 0.04 293.15);
+  --color-baltic-sea-700: oklch(30.16% 0.04 295.15);
+  --color-baltic-sea-800: oklch(26.32% 0.03 293.63);
+  --color-baltic-sea-900: oklch(17.16% 0.02 294.89);
+  --color-baltic-sea-950: oklch(16% 0.0152 296.75);
+
+  /* Orange accent palette - #F05A28 */
+  --color-accent-orange: #F05A28;
+  --color-accent-orange-50: #FEF3EE;
+  --color-accent-orange-100: #FDE4D9;
+  --color-accent-orange-200: #FBC7B3;
+  --color-accent-orange-300: #F8A182;
+  --color-accent-orange-400: #F47A50;
+  --color-accent-orange-500: #F05A28;
+  --color-accent-orange-600: #E1431A;
+  --color-accent-orange-700: #BB3316;
+  --color-accent-orange-800: #962B18;
+  --color-accent-orange-900: #792718;
+  --color-accent-orange-950: #41100A;
+
+  /* Light theme */
+  --background: var(--color-baltic-sea-50);
+  --foreground: var(--color-baltic-sea-900);
+  --card: white;
+  --card-foreground: var(--color-baltic-sea-900);
+  --popover: white;
+  --popover-foreground: var(--color-baltic-sea-900);
+  --primary: var(--color-baltic-sea-900);
+  --primary-foreground: var(--color-baltic-sea-50);
+  --secondary: var(--color-baltic-sea-100);
+  --secondary-foreground: var(--color-baltic-sea-800);
+  --muted: var(--color-baltic-sea-100);
+  --muted-foreground: var(--color-baltic-sea-500);
+  /* Updated accent to use orange */
+  --accent: var(--color-accent-orange-500);
+  --accent-foreground: white;
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: white;
+  --border: var(--color-baltic-sea-200);
+  --input: var(--color-baltic-sea-100);
+  --ring: var(--color-accent-orange-500);
+  --chart-1: var(--color-accent-orange-400);
+  --chart-2: var(--color-accent-orange-500);
+  --chart-3: var(--color-baltic-sea-400);
+  --chart-4: var(--color-baltic-sea-500);
+  --chart-5: var(--color-baltic-sea-600);
+  --radius: 0.75rem;
+  --sidebar: var(--color-baltic-sea-50);
+  --sidebar-foreground: var(--color-baltic-sea-900);
+  --sidebar-primary: var(--color-accent-orange-500);
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: var(--color-baltic-sea-100);
+  --sidebar-accent-foreground: var(--color-baltic-sea-900);
+  --sidebar-border: var(--color-baltic-sea-200);
+  --sidebar-ring: var(--color-accent-orange-500);
+
+  /* Light shadow for bento cards */
+  --bento-shadow: inset 0 -20px 80px -20px #0000000a;
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Base palette theme colors */
+  --color-baltic-50: var(--color-baltic-sea-50);
+  --color-baltic-100: var(--color-baltic-sea-100);
+  --color-baltic-200: var(--color-baltic-sea-200);
+  --color-baltic-300: var(--color-baltic-sea-300);
+  --color-baltic-400: var(--color-baltic-sea-400);
+  --color-baltic-500: var(--color-baltic-sea-500);
+  --color-baltic-600: var(--color-baltic-sea-600);
+  --color-baltic-700: var(--color-baltic-sea-700);
+  --color-baltic-800: var(--color-baltic-sea-800);
+  --color-baltic-900: var(--color-baltic-sea-900);
+  --color-baltic-950: var(--color-baltic-sea-950);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  /* Added overflow-x-hidden to html and body to prevent horizontal scroll */
+  html,
+  body {
+    @apply overflow-x-hidden;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom scrollbar styling - light theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-baltic-sea-300);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-baltic-sea-400);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-baltic-sea-300) transparent;
+  }
+}
+
+/* Adding float keyframe animation for FinalCTA floating dots */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(-5px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-15px) translateX(3px);
+  }
+}
+
+/* Adding infinite scroll keyframe animations for testimonials */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
